@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - New tag
   - player
+  - Gate
+  - Projectile
   layers:
   - Default
   - TransparentFX

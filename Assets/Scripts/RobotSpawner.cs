@@ -24,6 +24,7 @@ public class RobotSpawner : MonoBehaviour
     public BridgeManager bridgeLink;
     [Range(0,5)]
     public int level;
+    bool isDead;
 
     [System.Serializable]
     public class Vague
@@ -37,6 +38,7 @@ public class RobotSpawner : MonoBehaviour
         currentVague = 0;
         nbSpawned = 0;
         bridgeLink.doorCounter[level]++;
+        isDead = false;
     }
 
     Transform SpawnAI(Transform prefabAI)
@@ -90,6 +92,7 @@ public class RobotSpawner : MonoBehaviour
             // envoyer le signal à BridgeManager
             bridgeLink.currentDoorCounter[level]++;
             // afficher l'animation d'exctinction de la porte
+            isDead = true;
         }
     }
 

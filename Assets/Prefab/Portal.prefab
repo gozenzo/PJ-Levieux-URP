@@ -649,6 +649,8 @@ MonoBehaviour:
   vagues: []
   timeNextSpawn: 2.5
   timeNextVague: 30
+  bridgeLink: {fileID: 0}
+  level: 0
 --- !u!1 &7130418086769951731
 GameObject:
   m_ObjectHideFlags: 0

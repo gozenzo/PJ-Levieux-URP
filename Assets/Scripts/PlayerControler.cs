@@ -90,37 +90,6 @@ public class PlayerControler : MonoBehaviour
             //Avancer/Reculer
             rb.AddForce(transform.forward * linearAcc * vert);
 
-            //JETPACK !
-            if (Input.GetButton("Submit"))
-            {
-                rb.AddForce(transform.up * 40);
-            }
-
-            //Est-ce qu'on touche le sol ?
-            isGrounded = false;
-            RaycastHit infosRaycast;
-            bool trouve = Physics.SphereCast(transform.position + 0.1f * transform.up, 0.05f, -transform.up, out infosRaycast, 4);
-            if (trouve && infosRaycast.distance < 2.15f) //je met 2.15 car l'origine de mon player est à 2.09
-                isGrounded = true;
-
-            if (isGrounded == false)
-            {
-                rb.AddForce(-transform.up * 12);
-                
-
-            }
-
-
-            //JUMP
-            if (Input.GetButton("Jump"))
-            {
-                if (isGrounded)
-                {
-                    rb.AddForce(transform.up * 1, ForceMode.Impulse);
-                    isGrounded = false;
-                }
-            }
-
             //ATTACK !(Throw)
             if (Input.GetButtonDown("Fire1"))
             {
@@ -131,6 +100,37 @@ public class PlayerControler : MonoBehaviour
                     obj.GetComponent<Rigidbody>().AddForce(playerCam.forward * 40, ForceMode.Impulse);
                 }
             }
+
+            /* // Je n'utilise pas les fonctions de saut ni de Jetpack dans ce jeu. Je les laisse ici au cas où je change d'avis.
+           //JETPACK !
+           if (Input.GetButton("Submit"))
+           {
+               rb.AddForce(transform.up * 40);
+           }
+
+           //Est-ce qu'on touche le sol ?
+           isGrounded = false;
+           RaycastHit infosRaycast;
+           bool trouve = Physics.SphereCast(transform.position + 0.1f * transform.up, 0.05f, -transform.up, out infosRaycast, 4);
+           if (trouve && infosRaycast.distance < 2.15f) //je met 2.15 car l'origine de mon player est à 2.09
+               isGrounded = true;
+
+           if (isGrounded == false)
+           {
+               rb.AddForce(-transform.up * 12);
+           }
+           */
+            /*
+            //JUMP
+            if (Input.GetButton("Jump"))
+            {
+                if (isGrounded)
+                {
+                    rb.AddForce(transform.up * 1, ForceMode.Impulse);
+                    isGrounded = false;
+                }
+            }
+            */
         }
     }
 }
